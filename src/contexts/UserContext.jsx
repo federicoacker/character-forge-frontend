@@ -116,17 +116,17 @@ function UserProvider({ children }) {
                 if (!response.ok) {
                     throw new Error(response.status);
                 }
-                setRegistrationErrors({});
                 return response.json();
             })
             .then(() => {
+                setRegistrationErrors({});
                 const user = {
                     email: validatedUser.email,
                     password: validatedUser.password
                 }
                 login(user);
             })
-            .catch(() => {
+            .catch((error) => {
                 setError("C'è stato un problema durante la registrazione, ritenta più tardi");
             })
     }
