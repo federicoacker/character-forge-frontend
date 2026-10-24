@@ -4,6 +4,7 @@ import styles from './Register.module.css';
 
 function Register() {
     const { registrationErrors, register } = useUser();
+    const [submitting, setSubmitting] = useState(false);
     const [submitData, setSubmitData] = useState({
         name: "",
         email: "",
@@ -20,10 +21,13 @@ function Register() {
             [name]: value
         });
     }
-
+    if(Object.entries(registrationErrors).some(error => error != "")){
+            setSubmitting(false);
+        }
     const handleSubmit = (event) => {
         event.preventDefault();
         register(submitData);
+        setSubmitting(true);
     }
 
     return (
@@ -41,15 +45,15 @@ function Register() {
                 }
                 <label className="form-label" htmlFor="password">Password</label>
                 <input onChange={handleChange} required className="form-control" type="password" name="password" id="password" placeholder="password" value={submitData.password}></input>
-                {registrationErrors.email &&
+                {registrationErrors.password &&
                     <div className={styles.error}>{registrationErrors.password}</div>
                 }
                 <label className="form-label" htmlFor="password_confirmation">Confirm Password</label>
                 <input onChange={handleChange} required className="form-control" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" value={submitData.password_confirmation}></input>
-                {registrationErrors.email &&
+                {registrationErrors.password_confirmation &&
                     <div className={styles.error}>{registrationErrors.password_confirmation}</div>
                 }
-                <button type="submit" className={`btn ${styles.submit}`}>Register</button>
+                <button disabled={submitting} type="submit" className={`btn ${styles.submit}`}>{submitting ? "Registering..." : "Register"}</button>
             </form>
         </div>
     )
