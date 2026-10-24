@@ -98,7 +98,6 @@ function UserProvider({ children }) {
     const register = (user) => {
         const { validatedUser, errors } = validateUser(user);
         if (Object.values(errors).some(x => x !== "")) {
-            console.error(errors);
             setRegistrationErrors(errors);
             return;
         }
@@ -114,10 +113,10 @@ function UserProvider({ children }) {
 
         fetch(`${baseApiUrl}/register`, options)
             .then(response => {
-                setRegistrationErrors({});
                 if (!response.ok) {
                     throw new Error(response.status);
                 }
+                setRegistrationErrors({});
                 return response.json();
             })
             .then(() => {
