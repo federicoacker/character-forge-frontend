@@ -710,10 +710,10 @@ function CharacterShow({ is_public, id, owner_id, name, level, background, backs
                                                 <th>More Info</th>
                                                 <th>Level</th>
                                                 <th>Name</th>
-                                                <th>Casting Time</th>
-                                                <th>Range</th>
-                                                <th>Components</th>
-                                                <th>Duration</th>
+                                                <th className="d-none d-lg-table-cell">Casting Time</th>
+                                                <th className="d-none d-lg-table-cell">Range</th>
+                                                <th className="d-none d-lg-table-cell">Components</th>
+                                                <th className="d-none d-lg-table-cell">Duration</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -726,10 +726,10 @@ function CharacterShow({ is_public, id, owner_id, name, level, background, backs
                                                             </td>
                                                             <td>{spell.level}</td>
                                                             <td>{spell.name}</td>
-                                                            <td>{spell.casting_time}</td>
-                                                            <td>{spell.range}</td>
-                                                            <td>{spell.components}</td>
-                                                            <td>{spell.duration}</td>
+                                                            <td className="d-none d-lg-table-cell">{spell.casting_time}</td>
+                                                            <td className="d-none d-lg-table-cell">{spell.range}</td>
+                                                            <td className="d-none d-lg-table-cell">{spell.components}</td>
+                                                            <td className="d-none d-lg-table-cell">{spell.duration}</td>
                                                         </tr>
                                                     )
                                                 })
