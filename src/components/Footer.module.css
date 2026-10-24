@@ -1,0 +1,22 @@
+.footer{
+    min-height: 12vh;
+    background-color: #242527;
+    h3{
+        text-shadow: 1px 1px 2px #FF611E;
+    }
+}
+.footerLink{
+    text-decoration: none;
+    color:white;
+    font-size:1rem;
+    background: #FF611E;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.footerLink:hover{
+    background:#ff8956;
+    scale:1.05;
+}
