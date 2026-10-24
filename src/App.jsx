@@ -23,12 +23,14 @@ import FeatureShow from "./pages/show/FeatureShow";
 import FeatShow from "./pages/show/FeatShow";
 import SpellShow from "./pages/show/SpellShow";
 import Profile from "./pages/auth/Profile";
+import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   return (
     <BrowserRouter>
       <UserProvider>
         <FilterProvider>
+          <Analytics />
           <Routes>
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
