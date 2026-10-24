@@ -21,7 +21,7 @@ function Register() {
             [name]: value
         });
     }
-    if(Object.entries(registrationErrors)?.some(error => error != "")){
+    if(Object.entries(registrationErrors)?.some(error => error != "") && submitting){
             setSubmitting(false);
         }
     const handleSubmit = (event) => {
