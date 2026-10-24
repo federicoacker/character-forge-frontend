@@ -21,13 +21,13 @@ function Register() {
             [name]: value
         });
     }
-    if(Object.entries(registrationErrors).some(error => error != "")){
+    if(Object.entries(registrationErrors)?.some(error => error != "")){
             setSubmitting(false);
         }
     const handleSubmit = (event) => {
         event.preventDefault();
-        register(submitData);
         setSubmitting(true);
+        register(submitData);
     }
 
     return (
